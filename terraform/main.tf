@@ -58,3 +58,33 @@ module "thecyberspheretechnologies-info-f181" {
 
   account_customizations_name = "sandbox"
 }
+
+module "nexacoreit-org-admin" {
+  source = "./modules/aft-account-request"
+
+  control_tower_parameters = {
+    AccountEmail              = "admin@nexacoreit.org"
+    AccountName               = "nexacoreit-admin"
+    ManagedOrganizationalUnit = "Website Workloads (ou-98w3-o3cnph0b)"
+    SSOUserEmail              = "admin@nexacoreit.org"
+    SSOUserFirstName          = "nexacoreit"
+    SSOUserLastName           = "nexacoreit"
+  }
+
+  account_tags = {
+    "Opportunity" = "true"
+    "ManagedBy" = "OpportunityPortal"
+    "ProvisioningRetry" = "2026-02-27T00:04:35.949029"
+  }
+
+  change_management_parameters = {
+    change_requested_by = "Opportunity Portal"
+    change_reason       = "Self-service account creation"
+  }
+
+  custom_fields = {
+    group = "non-prod"
+  }
+
+  account_customizations_name = "sandbox"
+}
