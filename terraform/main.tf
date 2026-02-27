@@ -358,3 +358,33 @@ module "themind-matrix-com-admin" {
 
   account_customizations_name = "sandbox"
 }
+
+module "thequantumtechlabs-com-admin" {
+  source = "./modules/aft-account-request"
+
+  control_tower_parameters = {
+    AccountEmail              = "admin@thequantumtechlabs.com"
+    AccountName               = "thequantumtechlabs-admin"
+    ManagedOrganizationalUnit = "Website Workloads (ou-98w3-o3cnph0b)"
+    SSOUserEmail              = "admin@thequantumtechlabs.com"
+    SSOUserFirstName          = "thequantumtechlabs"
+    SSOUserLastName           = "thequantumtechlabs"
+  }
+
+  account_tags = {
+    "Opportunity" = "true"
+    "ManagedBy" = "OpportunityPortal"
+    "ProvisioningRetry" = "2026-02-27T14:55:10.643063"
+  }
+
+  change_management_parameters = {
+    change_requested_by = "Opportunity Portal"
+    change_reason       = "Self-service account creation"
+  }
+
+  custom_fields = {
+    group = "non-prod"
+  }
+
+  account_customizations_name = "sandbox"
+}
