@@ -328,3 +328,33 @@ module "theinsightiq-com-admin" {
 
   account_customizations_name = "sandbox"
 }
+
+module "themind-matrix-com-admin" {
+  source = "./modules/aft-account-request"
+
+  control_tower_parameters = {
+    AccountEmail              = "admin@themind-matrix.com"
+    AccountName               = "themind-matrix-admin"
+    ManagedOrganizationalUnit = "Website Workloads (ou-98w3-o3cnph0b)"
+    SSOUserEmail              = "admin@themind-matrix.com"
+    SSOUserFirstName          = "themind-matrix"
+    SSOUserLastName           = "themind-matrix"
+  }
+
+  account_tags = {
+    "Opportunity" = "true"
+    "ManagedBy" = "OpportunityPortal"
+    "ProvisioningRetry" = "2026-02-27T14:37:58.256729"
+  }
+
+  change_management_parameters = {
+    change_requested_by = "Opportunity Portal"
+    change_reason       = "Self-service account creation"
+  }
+
+  custom_fields = {
+    group = "non-prod"
+  }
+
+  account_customizations_name = "sandbox"
+}
