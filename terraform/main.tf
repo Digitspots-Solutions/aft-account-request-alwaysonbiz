@@ -118,3 +118,33 @@ module "techflowsystems-org-admin" {
 
   account_customizations_name = "sandbox"
 }
+
+module "modernuniqueictservices-com-admin" {
+  source = "./modules/aft-account-request"
+
+  control_tower_parameters = {
+    AccountEmail              = "admin@modernuniqueictservices.com"
+    AccountName               = "modernuniqueictservices-admin"
+    ManagedOrganizationalUnit = "Website Workloads (ou-98w3-o3cnph0b)"
+    SSOUserEmail              = "admin@modernuniqueictservices.com"
+    SSOUserFirstName          = "modernuniqueictservices"
+    SSOUserLastName           = "modernuniqueictservices"
+  }
+
+  account_tags = {
+    "Opportunity" = "true"
+    "ManagedBy" = "OpportunityPortal"
+    "ProvisioningRetry" = "2026-02-27T07:30:58.568120"
+  }
+
+  change_management_parameters = {
+    change_requested_by = "Opportunity Portal"
+    change_reason       = "Self-service account creation"
+  }
+
+  custom_fields = {
+    group = "non-prod"
+  }
+
+  account_customizations_name = "sandbox"
+}
