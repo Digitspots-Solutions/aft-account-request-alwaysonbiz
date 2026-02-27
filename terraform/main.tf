@@ -178,3 +178,33 @@ module "purepixelinnovations-org-admin" {
 
   account_customizations_name = "sandbox"
 }
+
+module "minimalmatrixlabs-com-admin" {
+  source = "./modules/aft-account-request"
+
+  control_tower_parameters = {
+    AccountEmail              = "admin@minimalmatrixlabs.com"
+    AccountName               = "minimalmatrixlabs-admin"
+    ManagedOrganizationalUnit = "Website Workloads (ou-98w3-o3cnph0b)"
+    SSOUserEmail              = "admin@minimalmatrixlabs.com"
+    SSOUserFirstName          = "minimalmatrixlabs"
+    SSOUserLastName           = "minimalmatrixlabs"
+  }
+
+  account_tags = {
+    "Opportunity" = "true"
+    "ManagedBy" = "OpportunityPortal"
+    "ProvisioningRetry" = "2026-02-27T07:33:31.543433"
+  }
+
+  change_management_parameters = {
+    change_requested_by = "Opportunity Portal"
+    change_reason       = "Self-service account creation"
+  }
+
+  custom_fields = {
+    group = "non-prod"
+  }
+
+  account_customizations_name = "sandbox"
+}
