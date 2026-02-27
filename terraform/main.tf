@@ -298,3 +298,33 @@ module "thesmartsense-org-admin" {
 
   account_customizations_name = "sandbox"
 }
+
+module "theinsightiq-com-admin" {
+  source = "./modules/aft-account-request"
+
+  control_tower_parameters = {
+    AccountEmail              = "admin@theinsightiq.com"
+    AccountName               = "theinsightiq-admin"
+    ManagedOrganizationalUnit = "Website Workloads (ou-98w3-o3cnph0b)"
+    SSOUserEmail              = "admin@theinsightiq.com"
+    SSOUserFirstName          = "theinsightiq"
+    SSOUserLastName           = "theinsightiq"
+  }
+
+  account_tags = {
+    "Opportunity" = "true"
+    "ManagedBy" = "OpportunityPortal"
+    "ProvisioningRetry" = "2026-02-27T14:34:19.599717"
+  }
+
+  change_management_parameters = {
+    change_requested_by = "Opportunity Portal"
+    change_reason       = "Self-service account creation"
+  }
+
+  custom_fields = {
+    group = "non-prod"
+  }
+
+  account_customizations_name = "sandbox"
+}
