@@ -628,3 +628,33 @@ module "constanglobal-org-admin" {
 
   account_customizations_name = "sandbox"
 }
+
+module "fayplex-com-admin" {
+  source = "./modules/aft-account-request"
+
+  control_tower_parameters = {
+    AccountEmail              = "admin@fayplex.com"
+    AccountName               = "fayplex-admin"
+    ManagedOrganizationalUnit = "Website Workloads (ou-98w3-o3cnph0b)"
+    SSOUserEmail              = "admin@fayplex.com"
+    SSOUserFirstName          = "fayplex"
+    SSOUserLastName           = "fayplex"
+  }
+
+  account_tags = {
+    "Opportunity" = "true"
+    "ManagedBy" = "OpportunityPortal"
+    "ProvisioningRetry" = "2026-03-27T23:12:38.854241"
+  }
+
+  change_management_parameters = {
+    change_requested_by = "Opportunity Portal"
+    change_reason       = "Self-service account creation"
+  }
+
+  custom_fields = {
+    group = "non-prod"
+  }
+
+  account_customizations_name = "sandbox"
+}
