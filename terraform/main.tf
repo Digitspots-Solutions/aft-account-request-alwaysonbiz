@@ -508,3 +508,33 @@ module "rasafventure-com-admin" {
 
   account_customizations_name = "sandbox"
 }
+
+module "nikkystores-com-admin" {
+  source = "./modules/aft-account-request"
+
+  control_tower_parameters = {
+    AccountEmail              = "admin@nikkystores.com"
+    AccountName               = "nikkystores-admin"
+    ManagedOrganizationalUnit = "Website Workloads (ou-98w3-o3cnph0b)"
+    SSOUserEmail              = "admin@nikkystores.com"
+    SSOUserFirstName          = "nikkystores"
+    SSOUserLastName           = "nikkystores"
+  }
+
+  account_tags = {
+    "Opportunity" = "true"
+    "ManagedBy" = "OpportunityPortal"
+    "ProvisioningRetry" = "2026-03-27T23:03:34.248611"
+  }
+
+  change_management_parameters = {
+    change_requested_by = "Opportunity Portal"
+    change_reason       = "Self-service account creation"
+  }
+
+  custom_fields = {
+    group = "non-prod"
+  }
+
+  account_customizations_name = "sandbox"
+}
