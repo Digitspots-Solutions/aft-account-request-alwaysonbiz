@@ -478,3 +478,33 @@ module "boritamulticoncept-com-admin" {
 
   account_customizations_name = "sandbox"
 }
+
+module "rasafventure-com-admin" {
+  source = "./modules/aft-account-request"
+
+  control_tower_parameters = {
+    AccountEmail              = "admin@rasafventure.com"
+    AccountName               = "rasafventure-admin"
+    ManagedOrganizationalUnit = "Website Workloads (ou-98w3-o3cnph0b)"
+    SSOUserEmail              = "admin@rasafventure.com"
+    SSOUserFirstName          = "rasafventure"
+    SSOUserLastName           = "rasafventure"
+  }
+
+  account_tags = {
+    "Opportunity" = "true"
+    "ManagedBy" = "OpportunityPortal"
+    "ProvisioningRetry" = "2026-03-27T23:02:23.196831"
+  }
+
+  change_management_parameters = {
+    change_requested_by = "Opportunity Portal"
+    change_reason       = "Self-service account creation"
+  }
+
+  custom_fields = {
+    group = "non-prod"
+  }
+
+  account_customizations_name = "sandbox"
+}
