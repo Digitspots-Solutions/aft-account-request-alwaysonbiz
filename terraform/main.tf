@@ -598,3 +598,33 @@ module "patoradesigns-com-admin" {
 
   account_customizations_name = "sandbox"
 }
+
+module "constanglobal-org-admin" {
+  source = "./modules/aft-account-request"
+
+  control_tower_parameters = {
+    AccountEmail              = "admin@constanglobal.org"
+    AccountName               = "constanglobal-admin"
+    ManagedOrganizationalUnit = "Website Workloads (ou-98w3-o3cnph0b)"
+    SSOUserEmail              = "admin@constanglobal.org"
+    SSOUserFirstName          = "constanglobal"
+    SSOUserLastName           = "constanglobal"
+  }
+
+  account_tags = {
+    "Opportunity" = "true"
+    "ManagedBy" = "OpportunityPortal"
+    "ProvisioningRetry" = "2026-03-27T23:06:52.576152"
+  }
+
+  change_management_parameters = {
+    change_requested_by = "Opportunity Portal"
+    change_reason       = "Self-service account creation"
+  }
+
+  custom_fields = {
+    group = "non-prod"
+  }
+
+  account_customizations_name = "sandbox"
+}
