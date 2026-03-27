@@ -418,3 +418,33 @@ module "jdorcas-com-admin" {
 
   account_customizations_name = "sandbox"
 }
+
+module "eyesofgodenterprise-com-admin" {
+  source = "./modules/aft-account-request"
+
+  control_tower_parameters = {
+    AccountEmail              = "admin@eyesofgodenterprise.com"
+    AccountName               = "eyesofgodenterprise-admin"
+    ManagedOrganizationalUnit = "Website Workloads (ou-98w3-o3cnph0b)"
+    SSOUserEmail              = "admin@eyesofgodenterprise.com"
+    SSOUserFirstName          = "eyesofgodenterprise"
+    SSOUserLastName           = "eyesofgodenterprise"
+  }
+
+  account_tags = {
+    "Opportunity" = "true"
+    "ManagedBy" = "OpportunityPortal"
+    "ProvisioningRetry" = "2026-03-27T23:00:41.355435"
+  }
+
+  change_management_parameters = {
+    change_requested_by = "Opportunity Portal"
+    change_reason       = "Self-service account creation"
+  }
+
+  custom_fields = {
+    group = "non-prod"
+  }
+
+  account_customizations_name = "sandbox"
+}
