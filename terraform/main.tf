@@ -658,3 +658,33 @@ module "fayplex-com-admin" {
 
   account_customizations_name = "sandbox"
 }
+
+module "ceecommunications-com-admin" {
+  source = "./modules/aft-account-request"
+
+  control_tower_parameters = {
+    AccountEmail              = "admin@ceecommunications.com"
+    AccountName               = "ceecommunications-admin"
+    ManagedOrganizationalUnit = "Website Workloads (ou-98w3-o3cnph0b)"
+    SSOUserEmail              = "admin@ceecommunications.com"
+    SSOUserFirstName          = "ceecommunications"
+    SSOUserLastName           = "ceecommunications"
+  }
+
+  account_tags = {
+    "Opportunity" = "true"
+    "ManagedBy" = "OpportunityPortal"
+    "ProvisioningRetry" = "2026-03-28T01:14:30.381740"
+  }
+
+  change_management_parameters = {
+    change_requested_by = "Opportunity Portal"
+    change_reason       = "Self-service account creation"
+  }
+
+  custom_fields = {
+    group = "non-prod"
+  }
+
+  account_customizations_name = "sandbox"
+}
